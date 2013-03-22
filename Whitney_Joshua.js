@@ -12,6 +12,7 @@ var yourStrike = Math.floor(Math.random() * 2);
 var totalDamage = 0;
 var damageThisRound = Math.floor(Math.random() * 5 + 1);
 var combat = true;
+var story = true;
 //End Global Variables
 
 //JSON DATA
@@ -124,27 +125,44 @@ healthCheck();
 
 console.log("I see the zombies! I hope you're ready to fight because I know they want your brains!!!");
 
-while (combat) {
-  if (yourStrike) {
-	for (var i = 0; i < zombie.zombies.length; i++) {
-		var creature = zombie.zombies[i];
-	}
-    console.log("You hit " + creature.name + " with " + damageThisRound + " points of damage!");
-    totalDamage += damageThisRound;
+		var fightScene = function() {
+				while (combat) {
+  					if (yourStrike) {
+						for (var i = 0; i < zombie.zombies.length; i++) {
+							var creature = zombie.zombies[i];
+						}
+    					console.log("You hit " + creature.name + " with " + damageThisRound + " points of damage!");
+    						totalDamage += damageThisRound;
     
-    if (totalDamage >= 4) {
-      console.log("You did it! You Killed " + creature.name);
-      combat = false;
-    } else {
-      yourStrike = Math.floor(Math.random() * 2);
-    }
-  } else {
-    console.log("You were killed by a worthless zombie! That means you too are worthless!");
-    combat = false;
-  }
-}			
+    				if (totalDamage >= 4) {
+      					console.log("You did it! You Killed " + creature.name);
+      					combat = false;
+    				} 
+					else 
+					{
+      					yourStrike = Math.floor(Math.random() * 2);
+    				}
+
+  					} 
+					else 
+					{
+    				console.log("You were killed by a worthless zombie! That means you too are worthless!");
+    				combat = false;
+  					}
+			}			
+		};
+	
+fightScene();
 
 
-
-
+		var ending = function() {
+			if (story == true) {
+				console.log("This is the end of the road. You have won!");
+			} else
+			{
+				console.log("You have much work left to do! Keep training!");
+			}
+		}
+ending();
+//end Script
 
