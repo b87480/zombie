@@ -109,10 +109,40 @@ console.log("First we need to check if you are old enough to fight off zombies."
 myhero.checkAge();
 
 console.log("Next we have to make sure that your health is up too par.");
-console.log("You currently have " + myhero.hitPoints() + " hit points!");
+		
+			var healthCheck = function() {
+				if (myhero.health <= 10) {
+					console.log("You currently have " + myhero.health + "! You need to see the medic!");
+				} else {
+					console.log("You have " + myhero.health + " hit points! You are ready to fight!");
+				}
+			}
+healthCheck();		
+myhero.newHealth();
+console.log("I see you went to the medic. Let's see how you are now.");
+healthCheck();
 
-			
+console.log("I see the zombies! I hope you're ready to fight because I know they want your brains!!!");
 
+while (combat) {
+  if (yourStrike) {
+	for (var i = 0; i < zombie.zombies.length; i++) {
+		var creature = zombie.zombies[i];
+	}
+    console.log("You hit " + creature.name + " with " + damageThisRound + " points of damage!");
+    totalDamage += damageThisRound;
+    
+    if (totalDamage >= 4) {
+      console.log("You did it! You Killed " + creature.name);
+      combat = false;
+    } else {
+      yourStrike = Math.floor(Math.random() * 2);
+    }
+  } else {
+    console.log("You were killed by a worthless zombie! That means you too are worthless!");
+    combat = false;
+  }
+}			
 
 
 
