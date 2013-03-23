@@ -13,6 +13,7 @@ var totalDamage = 0;
 var damageThisRound = Math.floor(Math.random() * 5 + 1);
 var combat = true;
 var story = true;
+var testVar = true;
 //End Global Variables
 
 //JSON DATA
@@ -164,5 +165,16 @@ fightScene();
 			}
 		}
 ending();
+		
+		
+		var remix = function() {
+			if (combat == false) {
+				console.log("This is stupid");	
+			} else {
+				console.log("Yes this is very stupid");
+			}
+		};
+		
+remix();
 //end Script
 
